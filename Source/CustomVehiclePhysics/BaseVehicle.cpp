@@ -5,7 +5,7 @@
 #include "Kismet/KismetSystemLibrary.h"
 #include "Components/StaticMeshComponent.h"
 
-// Sets default values
+ //Sets default values
 ABaseVehicle::ABaseVehicle()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -15,6 +15,21 @@ ABaseVehicle::ABaseVehicle()
 	VehicleMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("VehicleMesh"));
 	VehicleMesh->SetSimulatePhysics(true);
 	RootComponent = VehicleMesh;
+
+	//VehicleMesh->SetMassScale("NAME_None", 0.1f);
+	VehicleMesh->SetMassOverrideInKg("NAME_None", VehicleMass);
+
+	// Add WheelPoint to mesh
+	Wheel1 = CreateDefaultSubobject<USceneComponent>(TEXT("Wheel1"));
+	Wheel2 = CreateDefaultSubobject<USceneComponent>(TEXT("Wheel2"));
+	Wheel3 = CreateDefaultSubobject<USceneComponent>(TEXT("Wheel3"));
+	Wheel4 = CreateDefaultSubobject<USceneComponent>(TEXT("Wheel4"));
+
+	// Attach to vehicle mesh
+	Wheel1->SetupAttachment(VehicleMesh);
+	Wheel2->SetupAttachment(VehicleMesh);
+	Wheel3->SetupAttachment(VehicleMesh);
+	Wheel4->SetupAttachment(VehicleMesh);
 
 	// Add Vehicle Movement Component
 	VehicleMovement = CreateDefaultSubobject<UVehicleMovementComponent>("VehicleMovement");

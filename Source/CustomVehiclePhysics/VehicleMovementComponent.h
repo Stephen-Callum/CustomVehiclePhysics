@@ -17,7 +17,11 @@ class CUSTOMVEHICLEPHYSICS_API UVehicleMovementComponent : public UMovementCompo
 	
 		UVehicleMovementComponent();
 
+
 public:
+	UPROPERTY(EditAnywhere, Category = "Upward Force")
+	float UpwardForce;
+
 	UStaticMeshComponent* VehicleMesh;
 	UStaticMeshComponent* GetVehicleMesh();
 
@@ -26,6 +30,6 @@ protected:
 public:
 	void AddUpwardImpulse();
 	void SetVehicleMesh(UStaticMeshComponent * VehicleMesh);
-	void Accelerate(UInputComponent* VehicleInputComponent);
+	void SetSuspension(UInputComponent * VehicleInputComponent);
 
 };

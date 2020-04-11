@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "CustomVehiclePhysics/VehicleMovementComponent.h"
+#include "Components/SceneComponent.h"
 #include "GameFramework/Pawn.h"
 #include "BaseVehicle.generated.h"
 
@@ -16,10 +17,26 @@ public:
 	// Sets default values for this pawn's properties
 	ABaseVehicle();
 
-	UPROPERTY(EditAnywhere, Category="VehicleMeshComponent")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* VehicleMesh;
 
+	UPROPERTY(EditAnywhere, Category = "Movement Properties")
 	UVehicleMovementComponent* VehicleMovement;
+
+	UPROPERTY(EditAnywhere, Category = "Wheels")
+	USceneComponent* Wheel1;
+
+	UPROPERTY(EditAnywhere, Category = "Wheels")
+	USceneComponent* Wheel2;
+
+	UPROPERTY(EditAnywhere, Category = "Wheels")
+	USceneComponent* Wheel3;
+
+	UPROPERTY(EditAnywhere, Category = "Wheels")
+	USceneComponent* Wheel4;
+
+	UPROPERTY(EditAnywhere, Category = "VehicleProperties")
+		float VehicleMass;
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
