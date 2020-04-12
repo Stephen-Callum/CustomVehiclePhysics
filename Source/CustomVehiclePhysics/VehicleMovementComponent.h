@@ -21,7 +21,7 @@ class CUSTOMVEHICLEPHYSICS_API UVehicleMovementComponent : public UMovementCompo
 public:
 	UPROPERTY(EditAnywhere, Category = "Upward Force")
 	float UpwardForce;
-
+	
 	UStaticMeshComponent* VehicleMesh;
 	UStaticMeshComponent* GetVehicleMesh();
 

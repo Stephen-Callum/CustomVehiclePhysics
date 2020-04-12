@@ -20,7 +20,6 @@ public:
 	float SuspensionHeight;
 
 protected:
-	void SetSuspension();
 	// Called when the game starts
 	virtual void BeginPlay() override;
 

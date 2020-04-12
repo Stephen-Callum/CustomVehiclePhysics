@@ -33,7 +33,12 @@ ABaseVehicle::ABaseVehicle()
 
 	// Add Vehicle Movement Component
 	VehicleMovement = CreateDefaultSubobject<UVehicleMovementComponent>("VehicleMovement");
-	VehicleMovement->SetVehicleMesh(VehicleMesh);
+	
+	
+		VehicleMovement->SetVehicleMesh(VehicleMesh);
+		//UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Set", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
+
+	
 
 	// Movement
 	
@@ -46,10 +51,10 @@ void ABaseVehicle::BeginPlay()
 {
 	Super::BeginPlay();
 	// Check if mesh is valid
-	if (VehicleMovement->GetVehicleMesh())
+	/*if (VehicleMovement->GetVehicleMesh())
 	{
 		UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Setup", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
-	}
+	}*/
 }
 
 // Called every frame
@@ -66,6 +71,14 @@ void ABaseVehicle::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	//check(PlayerInputComponent);
 
 	PlayerInputComponent->BindAction("ForceUp", IE_Pressed, this, &ABaseVehicle::ApplyUpwardImpulse);
+}
+
+void ABaseVehicle::CheckMovementComponent()
+{
+	if (VehicleMovement)
+	{
+		UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Setup", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
+	}
 }
 
 void ABaseVehicle::ApplyUpwardImpulse()

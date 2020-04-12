@@ -14,14 +14,21 @@ UVehicleMovementComponent::UVehicleMovementComponent()
 
 void UVehicleMovementComponent::SetSuspension(UInputComponent* VehicleInputComponent)
 {
+	// Raycast to the ground
+	// If DistanceToGround <= SuspensionHeight
+		// ApplyForce Upwards (direction of raycast)
 }
 
 void UVehicleMovementComponent::AddUpwardImpulse()
 {
-	float VehicleMass = VehicleMesh->GetMass();
-	float NormalisedMagnitude = UKismetMathLibrary::NormalizeToRange(FMath::FRandRange(-1, 1) * VehicleMass, 0, 1);
-	UKismetSystemLibrary::PrintString(this, "Adding upward Impulse to Mesh", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
-	VehicleMesh->AddImpulse(FVector(FMath::FRandRange(-1, 1), FMath::FRandRange(-1, 1), UpwardForce * VehicleMass/10), "NAME_None", true);
+	//float VehicleMass = VehicleMesh->GetMass();
+	if (VehicleMesh)
+	{
+		UKismetSystemLibrary::PrintString(this, "Adding upward Impulse to Mesh", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
+
+	}
+	
+	//GetOwner()->SetActorLocation(GetOwner()->GetActorLocation() + FVector(100, 100, 100));
 }
 
 void UVehicleMovementComponent::SetVehicleMesh(UStaticMeshComponent* VehicleMeshRef)

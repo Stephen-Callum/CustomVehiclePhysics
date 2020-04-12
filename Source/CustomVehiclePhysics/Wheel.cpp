@@ -13,14 +13,6 @@ UWheel::UWheel()
 	// ...
 }
 
-void UWheel::SetSuspension()
-{
-	// Raycast to the ground
-	// If DistanceToGround <= SuspensionHeight
-		// ApplyForce Upwards (direction of raycast)
-}
-
-
 // Called when the game starts
 void UWheel::BeginPlay()
 {

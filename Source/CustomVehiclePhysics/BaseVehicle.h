@@ -17,10 +17,10 @@ public:
 	// Sets default values for this pawn's properties
 	ABaseVehicle();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* VehicleMesh;
 
-	UPROPERTY(EditAnywhere, Category = "Movement Properties")
+	UPROPERTY(VisibleAnywhere, Category = "Movement Properties")
 	UVehicleMovementComponent* VehicleMovement;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
@@ -48,6 +48,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable)
+	void CheckMovementComponent();
+
+	UFUNCTION()
 	void ApplyUpwardImpulse();
 
 };
