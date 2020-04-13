@@ -23,14 +23,22 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Upward Force")
 	float UpwardForce;
 	
+	UPROPERTY()
 	UStaticMeshComponent* VehicleMesh;
+
+	UFUNCTION()
 	UStaticMeshComponent* GetVehicleMesh();
 
 protected:
 
 public:
+	UFUNCTION()
 	void AddUpwardImpulse();
-	void SetVehicleMesh(UStaticMeshComponent * VehicleMesh);
+
+	UFUNCTION()
+	void SetVehicleMesh(UStaticMeshComponent * VehicleMeshRef);
+
+	UFUNCTION()
 	void Suspension(UWheel* Wheel);
 
 };
