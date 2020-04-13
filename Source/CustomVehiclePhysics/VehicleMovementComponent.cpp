@@ -15,32 +15,32 @@ UVehicleMovementComponent::UVehicleMovementComponent()
 
 void UVehicleMovementComponent::Suspension(UWheel* Wheel)
 {
-	// Raycast to the ground
-	// Hit contains information about what the raycast hit
-	FHitResult Hit;
+	//// Raycast to the ground
+	//// Hit contains information about what the raycast hit
+	//FHitResult Hit;
 
-	// The length of the ray in units.
-	float RayLength = Wheel->SuspensionHeight;
+	//// The length of the ray in units.
+	//float RayLength = Wheel->SuspensionHeight;
 
-	// Raycast origin
-	FVector StartLocation = Wheel->GetComponentLocation();
+	//// Raycast origin
+	//FVector StartLocation = Wheel->GetComponentLocation();
 
-	// Raycast end location
-	FVector EndLocation = StartLocation + (VehicleMesh->GetUpVector() * -1 * RayLength);
+	//// Raycast end location
+	//FVector EndLocation = StartLocation + (VehicleMesh->GetUpVector() * -1 * RayLength);
 
-	// Collion parameters
-	FCollisionQueryParams CollisionParameters;
-	CollisionParameters.AddIgnoredActor(GetOwner());
+	//// Collion parameters
+	//FCollisionQueryParams CollisionParameters;
+	//CollisionParameters.AddIgnoredActor(GetOwner());
 
-	// Perform line trace
-	// EcollisionChannel used in order to determine what we are looking for from the raycast
-	GetWorld()->LineTraceSingleByChannel(Hit, StartLocation, EndLocation, ECollisionChannel::ECC_WorldDynamic, CollisionParameters);
+	//// Perform line trace
+	//// EcollisionChannel used in order to determine what we are looking for from the raycast
+	////GetWorld()->LineTraceSingleByChannel(Hit, StartLocation, EndLocation, ECollisionChannel::ECC_WorldDynamic, CollisionParameters);
 
-	// Draw debug line
-	DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green, true, -1, 0, 1.f);
+	//// Draw debug line
+	////DrawDebugLine(GetWorld(), StartLocation, EndLocation, FColor::Green, true, -1, 0, 1.f);
 
-	// If DistanceToGround <= SuspensionHeight
-		// ApplyForce Upwards (direction of raycast)
+	//// If DistanceToGround <= SuspensionHeight
+	//	// ApplyForce Upwards (direction of raycast)
 }
 
 void UVehicleMovementComponent::AddUpwardImpulse()

@@ -72,6 +72,7 @@ void ABaseVehicle::CheckMovementComponent()
 
 void ABaseVehicle::ApplyUpwardImpulse()
 {
-	VehicleMovement->AddUpwardImpulse();
+	if(VehicleMovement)
+		VehicleMovement->AddUpwardImpulse();
 }
 
