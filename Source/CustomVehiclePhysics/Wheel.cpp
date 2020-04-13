@@ -31,6 +31,6 @@ void UWheel::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// Call Suspension from VMC
-	//VehicleMovement->Suspension(this);
+	//VehicleMovementComponent->Suspension(this);
 }
 

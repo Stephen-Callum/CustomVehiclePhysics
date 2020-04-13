@@ -19,7 +19,7 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Suspension")
 		float SuspensionHeight;
 
-	UVehicleMovementComponent* VehicleMovement;
+	UVehicleMovementComponent* VehicleMovementComponent;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

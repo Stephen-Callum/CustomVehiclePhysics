@@ -29,9 +29,9 @@ ABaseVehicle::ABaseVehicle()
 	Wheel4 = CreateDefaultSubobject<UWheel>(TEXT("Wheel4"));
 
 	// Add Vehicle Movement Component
-	VehicleMovement = CreateDefaultSubobject<UVehicleMovementComponent>("VehicleMovement");
+	VehicleMovementComponent = CreateDefaultSubobject<UVehicleMovementComponent>("VehicleMovement");
 	
-	VehicleMovement->SetVehicleMesh(VehicleMesh);
+	VehicleMovementComponent->SetVehicleMesh(VehicleMesh);
 	
 
 	// Movement
@@ -64,7 +64,7 @@ void ABaseVehicle::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 
 void ABaseVehicle::CheckMovementComponent()
 {
-	if (VehicleMovement)
+	if (VehicleMovementComponent)
 	{
 		UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Setup", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
 	}
@@ -72,6 +72,15 @@ void ABaseVehicle::CheckMovementComponent()
 
 void ABaseVehicle::ApplyUpwardImpulse()
 {
-	VehicleMovement->AddUpwardImpulse();
+	if (VehicleMovementComponent)
+	{
+		VehicleMovementComponent->AddUpwardImpulse();
+
+	}
+	else
+	{
+		UKismetSystemLibrary::PrintString(this, "VehicleComp 1 not valid", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
+
+	}
 }
 

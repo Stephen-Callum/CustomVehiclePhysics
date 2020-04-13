@@ -23,7 +23,7 @@ public:
 	UStaticMeshComponent* VehicleMesh;
 
 	UPROPERTY(VisibleAnywhere, Category = "Movement Properties")
-	UVehicleMovementComponent* VehicleMovement;
+	UVehicleMovementComponent* VehicleMovementComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
 	UWheel* Wheel1;

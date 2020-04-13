@@ -24,13 +24,19 @@ public:
 	float UpwardForce;
 	
 	UStaticMeshComponent* VehicleMesh;
-	UStaticMeshComponent* GetVehicleMesh();
 
 protected:
 
 public:
+	UFUNCTION()
 	void AddUpwardImpulse();
-	void SetVehicleMesh(UStaticMeshComponent * VehicleMesh);
+
+	UFUNCTION()
+	void SetVehicleMesh(UStaticMeshComponent* VehicleMeshRef);
+
+	UFUNCTION()
 	void Suspension(UWheel* Wheel);
 
+	UFUNCTION()
+	UStaticMeshComponent* GetVehicleMesh();
 };
