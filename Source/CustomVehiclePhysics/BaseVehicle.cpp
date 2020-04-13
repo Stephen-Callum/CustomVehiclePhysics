@@ -35,9 +35,7 @@ ABaseVehicle::ABaseVehicle()
 	VehicleMovement = CreateDefaultSubobject<UVehicleMovementComponent>("VehicleMovement");
 	
 	
-		VehicleMovement->SetVehicleMesh(VehicleMesh);
-		//UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Set", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
-
+	VehicleMovement->SetVehicleMesh(VehicleMesh);
 	
 
 	// Movement
@@ -50,11 +48,6 @@ ABaseVehicle::ABaseVehicle()
 void ABaseVehicle::BeginPlay()
 {
 	Super::BeginPlay();
-	// Check if mesh is valid
-	/*if (VehicleMovement->GetVehicleMesh())
-	{
-		UKismetSystemLibrary::PrintString(this, "Vehicle Mesh Setup", true, true, FLinearColor(0.0f, 0.6f, 1.0f, 1.0f));
-	}*/
 }
 
 // Called every frame
