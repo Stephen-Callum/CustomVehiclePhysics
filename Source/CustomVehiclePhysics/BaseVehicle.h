@@ -4,8 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "CustomVehiclePhysics/VehicleMovementComponent.h"
-#include "Components/SceneComponent.h"
+#include "CustomVehiclePhysics/Wheel.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/SpringArmComponent.h"
+#include "Camera/CameraComponent.h"
 #include "BaseVehicle.generated.h"
 
 UCLASS()
@@ -24,19 +26,23 @@ public:
 	UVehicleMovementComponent* VehicleMovement;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
-	USceneComponent* Wheel1;
+	UWheel* Wheel1;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
-	USceneComponent* Wheel2;
+	UWheel* Wheel2;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
-	USceneComponent* Wheel3;
+	UWheel* Wheel3;
 
 	UPROPERTY(EditAnywhere, Category = "Wheels")
-	USceneComponent* Wheel4;
+	UWheel* Wheel4;
 
-	UPROPERTY(EditAnywhere, Category = "VehicleProperties")
-		float VehicleMass;
+	UPROPERTY(EditAnywhere, Category = "VehicleCamera")
+	USpringArmComponent* SpringArm;
+
+	UPROPERTY(EditAnywhere, Category = "VehicleCamera")
+	UCameraComponent* Camera;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

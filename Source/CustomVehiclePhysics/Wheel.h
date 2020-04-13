@@ -6,7 +6,7 @@
 #include "Components/SceneComponent.h"
 #include "Wheel.generated.h"
 
-
+class UVehicleMovementComponent;
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class CUSTOMVEHICLEPHYSICS_API UWheel : public USceneComponent
 {
@@ -16,9 +16,10 @@ public:
 	// Sets default values for this component's properties
 	UWheel();
 
-	UPROPERTY(EditAnywhere, Category = "Wheel")
-	float SuspensionHeight;
+	UPROPERTY(EditAnywhere, Category = "Suspension")
+		float SuspensionHeight;
 
+	UVehicleMovementComponent* VehicleMovement;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

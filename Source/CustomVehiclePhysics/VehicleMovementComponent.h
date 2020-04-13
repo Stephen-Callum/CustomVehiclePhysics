@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/MovementComponent.h"
 #include "Components/InputComponent.h"
+#include "CustomVehiclePhysics/Wheel.h"
 #include "VehicleMovementComponent.generated.h"
 
 /**
@@ -30,6 +31,6 @@ protected:
 public:
 	void AddUpwardImpulse();
 	void SetVehicleMesh(UStaticMeshComponent * VehicleMesh);
-	void SetSuspension(UInputComponent * VehicleInputComponent);
+	void Suspension(UWheel* Wheel);
 
 };

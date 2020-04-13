@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
+// The point at which the suspension and wheel originate from.
 
 #include "Wheel.h"
+#include "CustomVehiclePhysics/VehicleMovementComponent.h"
 
 // Sets default values for this component's properties
 UWheel::UWheel()
@@ -12,6 +13,7 @@ UWheel::UWheel()
 
 	// ...
 }
+
 
 // Called when the game starts
 void UWheel::BeginPlay()
@@ -28,6 +30,7 @@ void UWheel::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponent
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	// Call Suspension from VMC
+	//VehicleMovement->Suspension(this);
 }
 
